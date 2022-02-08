@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
+import DisplayArticles from "./DisplayArticles";
+import Nav from "./Nav";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -10,11 +12,10 @@ const Articles = () => {
     });
   }, []);
   return (
-    <div>
-      {articles.map(article => {
-        return <li key={article.id}>{article.title}</li>;
-      })}
-    </div>
+    <>
+      <Nav />
+      <DisplayArticles articles={articles} />
+    </>
   );
 };
 
