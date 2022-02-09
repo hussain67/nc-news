@@ -31,7 +31,30 @@ const Nav = props => {
 
       <div>
         <h3>Sort Articles</h3>
-        <li></li>
+        <li
+          key="votes"
+          onClick={() => {
+            props.setQuery("votes");
+          }}
+        >
+          Votes
+        </li>
+        <li
+          key="created"
+          onClick={() => {
+            props.setQuery("created_at");
+          }}
+        >
+          Date-Created
+        </li>
+        <li
+          key="commentCount"
+          onClick={() => {
+            props.setQuery("comment_count");
+          }}
+        >
+          Comment-Count
+        </li>
       </div>
     </div>
   );

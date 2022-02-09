@@ -31,7 +31,17 @@ export const getTopics = () => {
 };
 export const getArticlesByQuery = query => {
   return newsApi.get(`/articles?sort_by=${query}`).then(res => {
-    // console.log(res.data);
+    console.log(res.data);
     return res.data;
   });
+};
+export const postComment = (id, username, body) => {
+  return newsApi
+    .post(`/articles/${id}/comments`, {
+      username,
+      body
+    })
+    .then(res => {
+      return res;
+    });
 };
