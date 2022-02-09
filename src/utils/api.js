@@ -5,7 +5,7 @@ const newsApi = axios.create({
 });
 
 export const getArticles = () => {
-  return newsApi.get("/articles/").then(res => {
+  return newsApi.get(`/articles`).then(res => {
     return res.data;
   });
 };
@@ -21,6 +21,17 @@ export const getCommentsByArticleId = id => {
 };
 export const getArticlesByTopic = topic => {
   return newsApi.get(`/articles?topic=${topic}`).then(res => {
-    console.log(res.data);
+    return res.data;
+  });
+};
+export const getTopics = () => {
+  return newsApi.get("/topics").then(res => {
+    return res.data;
+  });
+};
+export const getArticlesByQuery = query => {
+  return newsApi.get(`/articles?sort_by=${query}`).then(res => {
+    // console.log(res.data);
+    return res.data;
   });
 };

@@ -16,7 +16,6 @@ const ViewSingleArticle = () => {
       console.log(article);
       if (article) {
         getCommentsByArticleId(article_id).then(res => {
-          console.log(res.comments);
           setComments(() => res.comments);
         });
       }
