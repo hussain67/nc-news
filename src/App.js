@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Article from "./components/Article";
-import Articles from "./components/Articles";
+import ViewSingleArticle from "./components/ViewSingleArticle";
+import ViewArticles from "./components/ViewArticles";
 import Header from "./components/Header";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Articles />} />
-          <Route path="/articles/:article_id" element={<Article />} />
+          <Route path="/" element={<ViewArticles />} />
+          <Route path="/articles/:article_id" element={<ViewSingleArticle />} />
         </Routes>
       </BrowserRouter>
     </div>
