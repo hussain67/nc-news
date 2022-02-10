@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { postComment } from "../utils/api";
 
 const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, username }) => {
-  const [body, setBody] = useState("");
+  const [body, setBody] = useState();
 
   const handleSubmit = event => {
     event.preventDefault();
-    postComment(article_id, username, body).then(res => {
-      if (res.status === 201) {
-        setIsCreateComment(false);
-      }
-    });
+    if (body) {
+      postComment(article_id, username, body).then(res => {
+        if (res.status === 201) {
+          setIsCreateComment(false);
+        }
+      });
+    }
   };
 
   if (isCreateComment) {

@@ -4,6 +4,8 @@ import { getArticlesById, getCommentsByArticleId } from "../utils/api";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
 import Vote from "./Vote";
+import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -11,19 +13,24 @@ const ViewSingleArticle = () => {
   const [comments, setComments] = useState([]);
   const [isCreateComment, setIsCreateComment] = useState(false);
   const [username, setUsername] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
   const loggedInUser = "jessjelly";
 
   useEffect(() => {
-    getArticlesById(article_id).then(res => {
-      setArticle(() => res.article);
-      //console.log(res.article.votes);
-
-      if (article) {
-        getCommentsByArticleId(article_id).then(res => {
-          setComments(() => res.comments);
-        });
-      }
-    });
+    getArticlesById(article_id)
+      .then(res => {
+        setArticle(() => res.article);
+        if (article) {
+          getCommentsByArticleId(article_id).then(res => {
+            setComments(() => res.comments);
+          });
+        }
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   }, []);
 
   const handleInput = event => {
@@ -38,6 +45,12 @@ const ViewSingleArticle = () => {
       setUsername("");
     }
   };
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (!isLoading && !article) {
+    return <NotFound />;
+  }
   return (
     <div>
       <h3>{article.title}</h3>

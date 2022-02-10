@@ -5,14 +5,26 @@ const newsApi = axios.create({
 });
 
 export const getArticles = () => {
-  return newsApi.get(`/articles`).then(res => {
-    return res.data;
-  });
+  return newsApi
+    .get(`/articles`)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      console.log(err.message);
+      return err.message;
+    });
 };
 export const getArticlesById = id => {
-  return newsApi.get(`/articles/${id}`).then(res => {
-    return res.data;
-  });
+  return newsApi
+    .get(`/articles/${id}`)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      console.log(err.message);
+      return err.message;
+    });
 };
 export const getCommentsByArticleId = id => {
   return newsApi.get(`/articles/${id}/comments`).then(res => {

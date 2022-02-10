@@ -4,6 +4,7 @@ import "./App.css";
 import ViewSingleArticle from "./components/ViewSingleArticle";
 import ViewArticles from "./components/ViewArticles";
 import Header from "./components/Header";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ViewArticles />} />
           <Route path="/articles/:article_id" element={<ViewSingleArticle />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
