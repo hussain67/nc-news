@@ -3,6 +3,7 @@ import { postComment } from "../utils/api";
 
 const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, username }) => {
   const [body, setBody] = useState();
+  const [message, setMessage] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -12,24 +13,29 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, userna
           setIsCreateComment(false);
         }
       });
+    } else {
+      setMessage("Please enter your comment text");
     }
   };
 
   if (isCreateComment) {
     return (
-      <form onSubmit={handleSubmit}>
-        <textarea
-          onChange={e => {
-            setBody(e.target.value);
-          }}
-          name="body"
-          autoFocus
-          rows="4"
-          cols="50"
-        />{" "}
-        <br></br>
-        <button>Post Your Comment</button>
-      </form>
+      <>
+        <p>{message}</p>
+        <form onSubmit={handleSubmit}>
+          <textarea
+            onChange={e => {
+              setBody(e.target.value);
+            }}
+            name="body"
+            autoFocus
+            rows="4"
+            cols="50"
+          />{" "}
+          <br></br>
+          <button>Post Your Comment</button>
+        </form>
+      </>
     );
   } else {
     return null;

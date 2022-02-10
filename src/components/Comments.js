@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import { deleteComment } from "../utils/api";
+import { deleteComment, getCommentsByArticleId } from "../utils/api";
 
-const Comments = ({ comments, loggedInUser }) => {
-  const handleDelete = comment_id => {
+const Comments = ({ comments, loggedInUser, setComments }) => {
+  const handleDelete = (comment_id, article_id) => {
     deleteComment(comment_id).then(res => {
       if (res.status === 204) {
-        console.log("deleted");
+        getCommentsByArticleId(article_id).then(res => {
+          setComments(res.comments);
+        });
+        //console.log("deleted");
       }
     });
   };
@@ -19,7 +22,7 @@ const Comments = ({ comments, loggedInUser }) => {
               {loggedInUser == comment.author ? (
                 <button
                   onClick={() => {
-                    handleDelete(comment.comment_id);
+                    handleDelete(comment.comment_id, comment.article_id);
                   }}
                 >
                   Delete comment

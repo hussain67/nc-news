@@ -61,7 +61,7 @@ const ViewSingleArticle = () => {
         <button>Write a comment</button>
       </form>
       <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} username={username} />
-      <Comments comments={comments} loggedInUser={loggedInUser} />
+      <Comments comments={comments} loggedInUser={loggedInUser} setComments={setComments} />
     </div>
   );
 };
