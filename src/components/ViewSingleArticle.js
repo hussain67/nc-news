@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticlesById, getCommentsByArticleId } from "../utils/api";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
+import Vote from "./Vote";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -15,7 +16,8 @@ const ViewSingleArticle = () => {
   useEffect(() => {
     getArticlesById(article_id).then(res => {
       setArticle(() => res.article);
-      //console.log(article);
+      //console.log(res.article.votes);
+
       if (article) {
         getCommentsByArticleId(article_id).then(res => {
           setComments(() => res.comments);
@@ -39,6 +41,7 @@ const ViewSingleArticle = () => {
   return (
     <div>
       <h3>{article.title}</h3>
+      <Vote votes={article.votes} article_id={article_id} />
       <p>{article.body}</p>
       <form onSubmit={handleSubmit}>
         <input value={username} placeholder="Enter Username" onChange={handleInput} autoFocus />
