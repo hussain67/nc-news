@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../contexts/User";
 import { postComment } from "../utils/api";
 
-const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, username }) => {
+const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
   const [body, setBody] = useState();
   const [message, setMessage] = useState("");
+  const { loggedInUser } = useContext(UserContext);
 
   const handleSubmit = event => {
     event.preventDefault();
     if (body) {
-      postComment(article_id, username, body).then(res => {
+      postComment(article_id, loggedInUser.username, body).then(res => {
         if (res.status === 201) {
           setIsCreateComment(false);
         }

@@ -16,8 +16,6 @@ const ViewSingleArticle = () => {
   const [isCreateComment, setIsCreateComment] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const loggedInUser = "jessjelly";
-
   const handleClick = () => {
     setIsCreateComment(true);
   };
@@ -53,8 +51,8 @@ const ViewSingleArticle = () => {
           <button onClick={() => handleClick()}>Write a comment</button>
           <Vote votes={article.votes} article_id={article_id} />
         </div>
-        <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} username={loggedInUser} />
-        <Comments comments={comments} loggedInUser={loggedInUser} setComments={setComments} />
+        <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} />
+        <Comments comments={comments} setComments={setComments} />
       </div>
     </Page>
   );

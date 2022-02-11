@@ -3,4 +3,19 @@
   color: rgb(211, 37, 37);
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.header__user {
+  display: flex;
+  align-items: center;
+}
+.header__img {
+  display: block;
+  width: 40px;
+  border-radius: 20px;
+  height: 40px;
+  margin-left: 10px;
 }
