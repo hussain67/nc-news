@@ -29,11 +29,11 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, userna
             }}
             name="body"
             autoFocus
-            rows="4"
-            cols="50"
+            rows="5"
+            cols="40"
           />{" "}
           <br></br>
-          <button>Post Your Comment</button>
+          <button>Submit Your Comment</button>
         </form>
       </>
     );

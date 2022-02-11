@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { deleteComment, getCommentsByArticleId } from "../utils/api";
-
+import "../styles/Comment.css";
 const Comments = ({ comments, loggedInUser, setComments }) => {
   const handleDelete = (comment_id, article_id) => {
     deleteComment(comment_id).then(res => {
@@ -21,6 +21,7 @@ const Comments = ({ comments, loggedInUser, setComments }) => {
               Comment by: {comment.author}
               {loggedInUser == comment.author ? (
                 <button
+                  className="btn--comment"
                   onClick={() => {
                     handleDelete(comment.comment_id, comment.article_id);
                   }}

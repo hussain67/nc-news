@@ -7,16 +7,20 @@ import Vote from "./Vote";
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Page from "./Page";
+import "../styles/ViewSingleArticle.css";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
   const [isCreateComment, setIsCreateComment] = useState(false);
-  const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   const loggedInUser = "jessjelly";
+
+  const handleClick = () => {
+    setIsCreateComment(true);
+  };
 
   useEffect(() => {
     getArticlesById(article_id)
@@ -34,18 +38,6 @@ const ViewSingleArticle = () => {
       });
   }, []);
 
-  const handleInput = event => {
-    setUsername(() => event.target.value);
-    console.log(username);
-  };
-  const handleSubmit = event => {
-    event.preventDefault();
-    if (username === loggedInUser) {
-      setIsCreateComment(true);
-    } else {
-      setUsername("");
-    }
-  };
   if (isLoading) {
     return <Loading />;
   }
@@ -53,16 +45,17 @@ const ViewSingleArticle = () => {
     return <NotFound />;
   }
   return (
-    <Page title="Article & Comment">
-      <h3>{article.title}</h3>
-      <Vote votes={article.votes} article_id={article_id} />
-      <p>{article.body}</p>
-      <form onSubmit={handleSubmit}>
-        <input value={username} placeholder="Enter Username" onChange={handleInput} autoFocus />
-        <button>Write a comment</button>
-      </form>
-      <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} username={username} />
-      <Comments comments={comments} loggedInUser={loggedInUser} setComments={setComments} />
+    <Page title="Article & Comments">
+      <div className="article">
+        <h3>{article.title}</h3>
+        <p>{article.body}</p>
+        <div className="article__comment-vote">
+          <button onClick={() => handleClick()}>Write a comment</button>
+          <Vote votes={article.votes} article_id={article_id} />
+        </div>
+        <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} username={loggedInUser} />
+        <Comments comments={comments} loggedInUser={loggedInUser} setComments={setComments} />
+      </div>
     </Page>
   );
 };

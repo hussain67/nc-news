@@ -1,5 +1,5 @@
 .page {
   background-color: rgb(189, 241, 250);
   margin: 0 auto;
-  width: 95vw;
+  max-width: 95vw;
 }

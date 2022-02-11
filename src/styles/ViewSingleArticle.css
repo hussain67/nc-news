@@ -1,0 +1,9 @@
+.article {
+  margin: 3%;
+  padding: 20px 0;
+}
+.article__comment-vote {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
