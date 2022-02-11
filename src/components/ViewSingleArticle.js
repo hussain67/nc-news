@@ -6,6 +6,7 @@ import Comments from "./Comments";
 import Vote from "./Vote";
 import Loading from "./Loading";
 import NotFound from "./NotFound";
+import Page from "./Page";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -52,7 +53,7 @@ const ViewSingleArticle = () => {
     return <NotFound />;
   }
   return (
-    <div>
+    <Page title="Article & Comment">
       <h3>{article.title}</h3>
       <Vote votes={article.votes} article_id={article_id} />
       <p>{article.body}</p>
@@ -62,7 +63,7 @@ const ViewSingleArticle = () => {
       </form>
       <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} username={username} />
       <Comments comments={comments} loggedInUser={loggedInUser} setComments={setComments} />
-    </div>
+    </Page>
   );
 };
 

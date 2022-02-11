@@ -1,0 +1,9 @@
+.page {
+  background-color: #bdf1fa;
+  margin: 0 auto;
+  width: 95vw;
+}
+
+li {
+  list-style: none;
+}

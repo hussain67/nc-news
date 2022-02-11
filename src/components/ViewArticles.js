@@ -4,6 +4,7 @@ import Articles from "./Articles";
 import Loading from "./Loading";
 import Nav from "./Nav";
 import NotFound from "./NotFound";
+import Page from "./Page";
 
 const ViewArticles = () => {
   const [articles, setArticles] = useState();
@@ -46,10 +47,10 @@ const ViewArticles = () => {
   }
 
   return (
-    <>
+    <Page title="Articles">
       <Nav setTopic={setTopic} setQuery={setQuery} />
       <Articles articles={articles} />
-    </>
+    </Page>
   );
 };
 

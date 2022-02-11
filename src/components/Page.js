@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "../styles/Page.css";
 
 function Page(props) {
   useEffect(() => {
@@ -6,7 +7,7 @@ function Page(props) {
     window.scrollTo(0, 0);
   }, [props.title]);
 
-  return <div>{props.children}</div>;
+  return <div className="page">{props.children}</div>;
 }
 
 export default Page;
