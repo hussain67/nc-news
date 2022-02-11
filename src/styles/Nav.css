@@ -2,7 +2,9 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 3px solid rgb(172, 226, 208);
 }
 .nav__li {
   padding: 10px;
