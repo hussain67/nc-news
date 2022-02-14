@@ -6,6 +6,7 @@ import ViewArticles from "./components/ViewArticles";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import { UserContext } from "./contexts/User";
+import "./styles/Btn.css";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({

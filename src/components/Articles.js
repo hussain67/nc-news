@@ -13,7 +13,7 @@ const Articles = ({ articles }) => {
             <li className="articles__title">{article.title}</li>
             <Link key={article.article_id} to={`/articles/${article.article_id}`}>
               {" "}
-              <button className="article__btn">Read more</button>{" "}
+              <button className="btn btn--read">... Read more</button>{" "}
             </Link>
           </ul>
         );

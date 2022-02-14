@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { deleteComment, getCommentsByArticleId } from "../utils/api";
 import "../styles/Comment.css";
 import { UserContext } from "../contexts/User";
+import { FaTrash } from "react-icons/fa";
 const Comments = ({ comments, setComments }) => {
   const { loggedInUser } = useContext(UserContext);
   const handleDelete = (comment_id, article_id) => {
@@ -22,12 +23,12 @@ const Comments = ({ comments, setComments }) => {
               Comment by: {comment.author}
               {loggedInUser.username == comment.author ? (
                 <button
-                  className="btn--comment"
+                  className="btn btn--delete"
                   onClick={() => {
                     handleDelete(comment.comment_id, comment.article_id);
                   }}
                 >
-                  Delete comment
+                  <FaTrash />
                 </button>
               ) : (
                 ""

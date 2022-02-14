@@ -48,7 +48,9 @@ const ViewSingleArticle = () => {
         <h3>{article.title}</h3>
         <p>{article.body}</p>
         <div className="article__comment-vote">
-          <button onClick={() => handleClick()}>Write a comment</button>
+          <button className="btn btn--comment" onClick={() => handleClick()}>
+            Write a comment
+          </button>
           <Vote votes={article.votes} article_id={article_id} />
         </div>
         <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} />

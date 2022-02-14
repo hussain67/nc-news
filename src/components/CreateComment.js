@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
 import { postComment } from "../utils/api";
+import { FaWindowClose } from "react-icons/fa";
+import "../styles/Create-comments.css";
 
 const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
   const [body, setBody] = useState();
@@ -34,8 +36,12 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
             rows="5"
             cols="40"
           />{" "}
-          <br></br>
-          <button>Submit Your Comment</button>
+          <div className="create-comments-buttons">
+            <button className="btn btn--comment btn--submit">Submit Your Comment</button>
+            <button onClick={() => setIsCreateComment(false)} className="btn btn--close">
+              <FaWindowClose />
+            </button>
+          </div>
         </form>
       </>
     );

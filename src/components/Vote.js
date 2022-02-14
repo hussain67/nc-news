@@ -1,16 +1,35 @@
 import React, { useState } from "react";
-import { increaseVote } from "../utils/api";
+import { countVote } from "../utils/api";
+
+import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 
 const Vote = ({ votes, article_id }) => {
   const [voteCount, setVoteCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
 
-  const handleClick = () => {
+  const handleLikeClick = () => {
     setVoteCount(voteCount => voteCount + 1);
-    increaseVote(article_id).then(res => {
-      console.log(res);
-    });
+    setIsLiked(true);
+    countVote(article_id, voteCount).then(res => {});
   };
-  return <button onClick={() => handleClick()}>⭐️ {votes + voteCount} ⭐️</button>;
+  const handleDislikeClick = () => {
+    setVoteCount(voteCount => voteCount - 1);
+    setIsDisliked(true);
+    countVote(article_id, voteCount).then(res => {});
+  };
+  return (
+    <div>
+      <span>How was the article:</span>
+      <button className={isLiked ? "btn btn-disabled" : "btn"} disabled={isLiked} onClick={() => handleLikeClick(1)}>
+        <FaRegThumbsUp />
+      </button>
+      <span> ⭐️ {votes + voteCount} ⭐️</span>
+      <button className={isDisliked ? "btn btn-disabled" : "btn"} disabled={isDisliked} onClick={() => handleDislikeClick(-1)}>
+        <FaRegThumbsDown />
+      </button>
+    </div>
+  );
 };
 
 export default Vote;

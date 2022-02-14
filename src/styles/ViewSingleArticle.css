@@ -4,6 +4,6 @@
 }
 .article__comment-vote {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 20px;
 }

@@ -1,0 +1,32 @@
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+  margin: 0;
+}
+.btn--delete {
+  color: red;
+}
+
+.btn--read {
+  color: blue;
+}
+.btn-disabled {
+  color: red;
+}
+
+.btn--comment {
+  background-color: rgb(185, 228, 185);
+  border: 2px solid rgb(52, 122, 52);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.btn--submit {
+  display: block;
+  margin: 10px 30px 15px 0px;
+}
+
+.btn--close {
+  font-size: 30px;
+}

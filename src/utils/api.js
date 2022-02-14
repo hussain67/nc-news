@@ -62,8 +62,8 @@ export const deleteComment = comment_id => {
     return res;
   });
 };
-export const increaseVote = article_id => {
-  return newsApi.patch(`/articles/${article_id}`, { inc_votes: 1 }).then(res => {
+export const countVote = (article_id, count)=> {
+  return newsApi.patch(`/articles/${article_id}`, { inc_votes: count }).then(res => {
     return res;
   });
 };
