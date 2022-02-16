@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import { UserContext } from "./contexts/User";
 import "./styles/Btn.css";
+import "./styles/Loading.css";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
