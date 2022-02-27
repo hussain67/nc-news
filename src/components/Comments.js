@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { deleteComment, getCommentsByArticleId } from "../utils/api";
 import "../styles/Comment.css";
 import { UserContext } from "../contexts/User";
@@ -21,7 +21,7 @@ const Comments = ({ comments, setComments }) => {
           <li key={comment.comment_id}>
             <h3>
               Comment by: {comment.author}
-              {loggedInUser.username == comment.author ? (
+              {loggedInUser.username === comment.author ? (
                 <button
                   className="btn btn--delete"
                   onClick={() => {

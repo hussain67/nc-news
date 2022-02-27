@@ -34,7 +34,7 @@ const ViewSingleArticle = () => {
       .catch(err => {
         console.log(err.message);
       });
-  }, []);
+  }, [article, article_id]);
 
   if (isLoading) {
     return <Loading />;
