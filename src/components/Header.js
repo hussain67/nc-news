@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/User";
 import "../styles/Header.css";
 
@@ -7,9 +8,12 @@ const Header = () => {
   //console.log(loggedInUser);
   return (
     <div className="header">
-      <h1>Nc News</h1>
+      <Link className="header__link" to={"/"}>
+        <h1>Nc News</h1>
+      </Link>
+
       <div className="header__user">
-        <span> Welcome:</span> <img className="header__img" src={loggedInUser.avatar_url} />
+        <span> Welcome:</span> <img className="header__img" src={loggedInUser.avatar_url} alt={"User img"} />
       </div>
     </div>
   );
