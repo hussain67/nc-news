@@ -10,3 +10,13 @@ The nc-news is hosted in the address https://nc-news-shahid.netlify.app/
 ## Technicals
 
 This app was created by using react, HTML5, CSS3.
+
+## How to run this app locally
+
+Clone the app to your local mechine from https://github.com/hussain67/nc-news
+Run the command npm install.
+Write the command npm start.
+
+## Address for the back-end
+
+https://be-nc-news-shahid.herokuapp.com/api
