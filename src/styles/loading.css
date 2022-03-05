@@ -1,8 +1,6 @@
-.center {
-  text-align: center;
-}
 @keyframes spinner {
-  to {
+  100% {
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
