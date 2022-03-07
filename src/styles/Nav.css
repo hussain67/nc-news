@@ -1,10 +1,6 @@
 .nav {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 3px solid rgb(172, 226, 208);
+  display: block;
+  text-align: center;
 }
 .nav__li {
   padding: 10px;
@@ -15,28 +11,35 @@
 }
 .nav__title {
   cursor: pointer;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background-color: rgb(87, 76, 76);
+  color: #fff;
+  padding: 5px 0;
+  border-radius: 5px;
 }
-.topics-ul {
-  padding: 15px;
+.nav__ul {
   margin-bottom: 10px;
 }
-.topics-container {
-  height: 0;
-  width: 100%;
-  background-color: white;
-  overflow: hidden;
-  transition: all 0.3s linear;
-  border-radius: 7px;
-}
-.sort-container {
+.nav__links {
   height: 0px;
-  width: 90%;
+  margin-top: 2px;
+  margin-bottom: 2px;
   background-color: white;
   overflow: hidden;
   transition: all 0.3s linear;
   border-radius: 7px;
 }
-.sort-ul {
-  padding: 15px;
-  margin-bottom: 10px;
+
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+  .nav__title {
+    padding-top: 5px;
+    padding-bottom: 0;
+    background-color: transparent;
+    border: none;
+    color: rgb(211, 37, 37);
+  }
 }

@@ -8,6 +8,7 @@ import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Page from "./Page";
 import "../styles/ViewSingleArticle.css";
+import Header from "./Header";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -43,20 +44,23 @@ const ViewSingleArticle = () => {
     return <NotFound />;
   }
   return (
-    <Page title="Article & Comments">
-      <div className="article">
-        <h3>{article.title}</h3>
-        <p>{article.body}</p>
-        <div className="article__comment-vote">
-          <button className="btn btn--comment" onClick={() => handleClick()}>
-            Write a comment
-          </button>
-          <Vote votes={article.votes} article_id={article_id} />
+    <>
+      <Header />
+      <Page title="Article & Comments">
+        <div className="article">
+          <h3>{article.title}</h3>
+          <p>{article.body}</p>
+          <div className="article__comment-vote">
+            <button className="btn btn--comment" onClick={() => handleClick()}>
+              Write a comment
+            </button>
+            <Vote votes={article.votes} article_id={article_id} />
+          </div>
+          <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} />
+          <Comments comments={comments} setComments={setComments} />
         </div>
-        <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} />
-        <Comments comments={comments} setComments={setComments} />
-      </div>
-    </Page>
+      </Page>
+    </>
   );
 };
 

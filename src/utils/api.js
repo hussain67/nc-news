@@ -43,7 +43,6 @@ export const getTopics = () => {
 };
 export const getArticlesByQuery = query => {
   return newsApi.get(`/articles?sort_by=${query}`).then(res => {
-    console.log(res.data);
     return res.data;
   });
 };

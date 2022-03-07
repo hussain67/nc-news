@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import ViewSingleArticle from "./components/ViewSingleArticle";
 import ViewArticles from "./components/ViewArticles";
-import Header from "./components/Header";
+//import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import { UserContext } from "./contexts/User";
 import "./styles/Btn.css";
@@ -19,7 +18,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
-          <Header />
           <Routes>
             <Route path="/" element={<ViewArticles />} />
             <Route path="/articles/:article_id" element={<ViewSingleArticle />} />

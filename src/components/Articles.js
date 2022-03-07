@@ -5,7 +5,7 @@ import "../styles/Articles.css";
 const Articles = ({ articles }) => {
   //console.log(articles);
   return (
-    <div>
+    <div className="articles">
       {articles.map(article => {
         return (
           <ul key={article.article_id} className="articles__ul">

@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { UserContext } from "../contexts/User";
+import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
 const Header = () => {
   const { loggedInUser } = useContext(UserContext);
-  //console.log(loggedInUser);
   return (
     <div className="header">
       <Link className="header__link" to={"/"}>
-        <h1>Nc News</h1>
+        <div>Nc News</div>
       </Link>
 
       <div className="header__user">
@@ -18,5 +17,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;

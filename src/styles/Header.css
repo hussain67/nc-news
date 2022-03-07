@@ -1,15 +1,18 @@
 .header {
-  text-align: center;
   color: rgb(211, 37, 37);
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  padding-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   margin-left: 2rem;
   margin-right: 2rem;
+  font-size: 20px;
+  align-items: flex-start;
 }
 .header__link {
   color: rgb(211, 37, 37);
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
 }
 .header__user {
   display: flex;
@@ -21,4 +24,22 @@
   border-radius: 20px;
   height: 40px;
   margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .articles-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .header__link {
+    color: rgb(211, 37, 37);
+    display: block;
+    font-size: 35px;
+    font-weight: 500;
+  }
 }

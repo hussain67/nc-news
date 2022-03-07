@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { getArticles, getArticlesByQuery, getArticlesByTopic } from "../utils/api";
 import Articles from "./Articles";
 import Loading from "./Loading";
-import Nav from "./Nav";
 import NotFound from "./NotFound";
 import Page from "./Page";
+import HeaderArticles from "./HeaderArticles";
+import "../styles/Header.css";
 
 const ViewArticles = () => {
   const [articles, setArticles] = useState();
@@ -47,10 +48,13 @@ const ViewArticles = () => {
   }
 
   return (
-    <Page title="Articles">
-      <Nav setTopic={setTopic} setQuery={setQuery} />
-      <Articles articles={articles} />
-    </Page>
+    <>
+      <HeaderArticles setTopic={setTopic} setQuery={setQuery} />
+
+      <Page title="Articles">
+        <Articles articles={articles} />
+      </Page>
+    </>
   );
 };
 

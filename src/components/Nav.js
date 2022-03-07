@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getTopics } from "../utils/api";
+
 import "../styles/Nav.css";
+import "../styles/Header.css";
 
 const Nav = props => {
   const [topics, setTopics] = useState([]);
@@ -49,13 +51,13 @@ const Nav = props => {
     props.setTopic(input);
   }
   return (
-    <div className="nav">
+    <div className="header nav">
       <div>
         <h3 className="nav__title" onClick={() => toggleShowTopics()}>
           Topics
         </h3>
-        <div className="topics-container" ref={topicsContainerRef}>
-          <ul className="topics-ul" ref={topicsRef}>
+        <div className="nav__links" ref={topicsContainerRef}>
+          <ul className="nav__ul" ref={topicsRef}>
             {topics.map(topic => {
               return (
                 <li
@@ -76,10 +78,10 @@ const Nav = props => {
 
       <div>
         <h3 className="nav__title" onClick={() => toggleShowSort()}>
-          Sort Articles{" "}
+          Sort Articles
         </h3>
-        <div className="sort-container" ref={sortContainerRef}>
-          <ul className="sort-ul" ref={sortRef}>
+        <div className="nav__links" ref={sortContainerRef}>
+          <ul className="nav__ul" ref={sortRef}>
             <li
               className="nav__li"
               key="votes"
