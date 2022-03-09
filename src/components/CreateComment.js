@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
 import { postComment } from "../utils/api";
 import { FaWindowClose } from "react-icons/fa";
-import "../styles/Create-comments.css";
+import "../styles/Create-comment.css";
 
 const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
   const [body, setBody] = useState();
@@ -31,14 +31,13 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
             onChange={e => {
               setBody(e.target.value);
             }}
+            className="create-comment__textarea"
             name="body"
             autoFocus
-            rows="5"
-            cols="40"
-          />{" "}
-          <div className="create-comments-buttons">
-            <button className="btn btn--comment btn--submit">Submit Your Comment</button>
-            <button onClick={() => setIsCreateComment(false)} className="btn btn--close">
+          />
+          <div className="create-comment-buttons">
+            <button className="btn btn__comment btn__submit">Submit Your Comment</button>
+            <button onClick={() => setIsCreateComment(false)} className="btn btn__close">
               <FaWindowClose />
             </button>
           </div>

@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Page from "./Page";
 import "../styles/ViewSingleArticle.css";
-import Header from "./Header";
+import Header from "./HeaderArticle";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -45,13 +45,16 @@ const ViewSingleArticle = () => {
   }
   return (
     <>
-      <Header />
+      <div className="article-header">
+        <Header />
+      </div>
+
       <Page title="Article & Comments">
         <div className="article">
           <h3>{article.title}</h3>
           <p>{article.body}</p>
           <div className="article__comment-vote">
-            <button className="btn btn--comment" onClick={() => handleClick()}>
+            <button className="btn btn__comment" onClick={() => handleClick()}>
               Write a comment
             </button>
             <Vote votes={article.votes} article_id={article_id} />

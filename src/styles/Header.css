@@ -1,15 +1,17 @@
 .header {
-  color: rgb(211, 37, 37);
+  color: #fff;
   padding-top: 0.5rem;
   display: flex;
   justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  padding-bottom: 0.5rem;
+
   font-size: 20px;
   align-items: flex-start;
 }
 .header__link {
-  color: rgb(211, 37, 37);
+  color: #fff;
   display: block;
   font-size: 25px;
   font-weight: 400;
@@ -28,18 +30,31 @@
 
 @media screen and (min-width: 768px) {
   .header {
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+  .article-header {
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .articles-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .header__link {
-    color: rgb(211, 37, 37);
+    color: #fff;
     display: block;
     font-size: 35px;
     font-weight: 500;
+  }
+}
+@media screen and (min-width: 992px) {
+  .articles-header,
+  .article-header {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }

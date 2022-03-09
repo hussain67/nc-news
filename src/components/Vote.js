@@ -20,7 +20,6 @@ const Vote = ({ votes, article_id }) => {
   };
   return (
     <div>
-      <span>How was the article:</span>
       <button className={isLiked ? "btn btn-disabled" : "btn"} disabled={isLiked} onClick={() => handleLikeClick(1)}>
         <FaRegThumbsUp />
       </button>

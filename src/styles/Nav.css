@@ -5,14 +5,15 @@
 .nav__li {
   padding: 10px;
   text-transform: capitalize;
-  background-color: #bdf1fa;
+  background-color: #6289a7;
   cursor: pointer;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
+  font-size: 16px;
 }
 .nav__title {
   cursor: pointer;
   border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1.5px solid #fff;
   background-color: rgb(87, 76, 76);
   color: #fff;
   padding: 5px 0;
@@ -25,21 +26,21 @@
   height: 0px;
   margin-top: 2px;
   margin-bottom: 2px;
-  background-color: white;
+
   overflow: hidden;
   transition: all 0.3s linear;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 768px) {
   .nav {
     display: flex;
+    justify-content: space-around;
   }
   .nav__title {
     padding-top: 5px;
     padding-bottom: 0;
     background-color: transparent;
     border: none;
-    color: rgb(211, 37, 37);
   }
 }

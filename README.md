@@ -15,7 +15,7 @@ This app was created by using react, HTML5, CSS3.
 
 Clone the app to your local mechine from https://github.com/hussain67/nc-news
 Run the command npm install.
-Write the command npm start.
+Run the command npm start.
 
 ## Address for the back-end
 

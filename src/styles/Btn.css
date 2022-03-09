@@ -15,18 +15,18 @@
   color: red;
 }
 
-.btn--comment {
-  background-color: rgb(185, 228, 185);
-  border: 2px solid rgb(52, 122, 52);
+.btn__comment {
+  background-color: #e2e8ed;
   border-radius: 5px;
   padding: 5px 10px;
 }
 
-.btn--submit {
+.btn__submit {
   display: block;
   margin: 10px 30px 15px 0px;
 }
 
-.btn--close {
+.btn__close {
   font-size: 30px;
+  color: red;
 }
