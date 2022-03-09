@@ -2,10 +2,11 @@
   color: #fff;
   padding-top: 0.5rem;
   display: flex;
-  justify-content: space-between;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
+  justify-content: space-around;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
   padding-bottom: 0.5rem;
+  background-color: #345672;
 
   font-size: 20px;
   align-items: flex-start;
@@ -28,21 +29,21 @@
   margin-left: 10px;
 }
 
+.header--articles {
+  background-color: #345672;
+}
 @media screen and (min-width: 768px) {
   .header {
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
-  .article-header {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .articles-header {
+
+  .header--articles {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-left: 5%;
-    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .header__link {
     color: #fff;
@@ -54,7 +55,7 @@
 @media screen and (min-width: 992px) {
   .articles-header,
   .article-header {
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }

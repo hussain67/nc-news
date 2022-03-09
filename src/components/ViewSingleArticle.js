@@ -8,7 +8,7 @@ import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Page from "./Page";
 import "../styles/ViewSingleArticle.css";
-import Header from "./HeaderArticle";
+import HeaderArticle from "./HeaderArticle";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -45,9 +45,7 @@ const ViewSingleArticle = () => {
   }
   return (
     <>
-      <div className="article-header">
-        <Header />
-      </div>
+      <HeaderArticle />
 
       <Page title="Article & Comments">
         <div className="article">
