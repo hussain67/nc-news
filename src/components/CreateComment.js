@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
 import { postComment } from "../utils/api";
 import { FaWindowClose } from "react-icons/fa";
-import "../styles/Create-comment.css";
+import "../styles/CreateComment.css";
 
 const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
-  const [body, setBody] = useState();
+  const [body, setBody] = useState("");
   const [message, setMessage] = useState("");
   const { loggedInUser } = useContext(UserContext);
 
@@ -14,6 +14,8 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
     if (body) {
       postComment(article_id, loggedInUser.username, body).then(res => {
         if (res.status === 201) {
+          setBody("");
+          setMessage("");
           setIsCreateComment(false);
         }
       });
@@ -21,11 +23,16 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
       setMessage("Please enter your comment text");
     }
   };
+  const handleDelete = () => {
+    setIsCreateComment(false);
+    setBody("");
+    setMessage("");
+  };
 
   if (isCreateComment) {
     return (
-      <>
-        <p>{message}</p>
+      <div className="create-comment">
+        <span className="create-comment__msg">{message}</span>
         <form onSubmit={handleSubmit}>
           <textarea
             onChange={e => {
@@ -34,15 +41,16 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
             className="create-comment__textarea"
             name="body"
             autoFocus
+            value={body}
           />
-          <div className="create-comment-buttons">
+          <div className="create-comment__btn-container">
             <button className="btn btn__comment btn__submit">Submit Your Comment</button>
-            <button onClick={() => setIsCreateComment(false)} className="btn btn__close">
+            <button onClick={handleDelete} className="btn btn__close">
               <FaWindowClose />
             </button>
           </div>
         </form>
-      </>
+      </div>
     );
   } else {
     return null;

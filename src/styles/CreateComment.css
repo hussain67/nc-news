@@ -2,7 +2,12 @@
   width: 338px;
   height: 125px;
 }
-.create-comment-buttons {
+.create-comment__msg {
+  color: red;
+  padding-bottom: 10spx;
+  display: block;
+}
+.create-comment__btn-container {
   width: 350px;
   display: flex;
   justify-content: space-between;
@@ -12,7 +17,7 @@
     width: 487px;
     height: 175px;
   }
-  .create-comment-buttons {
+  .create-comment__btn-container {
     width: 500px;
     display: flex;
     justify-content: space-between;
