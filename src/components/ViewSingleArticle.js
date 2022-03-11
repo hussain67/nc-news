@@ -25,7 +25,7 @@ const ViewSingleArticle = () => {
     getArticlesById(article_id)
       .then(res => {
         setArticle(() => res.article);
-        if (article) {
+        if (res.article) {
           getCommentsByArticleId(article_id).then(res => {
             setComments(() => res.comments);
           });
@@ -35,7 +35,7 @@ const ViewSingleArticle = () => {
       .catch(err => {
         console.log(err.message);
       });
-  }, [article, article_id]);
+  }, [article_id]);
 
   if (isLoading) {
     return <Loading />;
