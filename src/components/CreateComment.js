@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
-import { postComment } from "../utils/api";
+import { postComment, getCommentsByArticleId } from "../utils/api";
 import { FaWindowClose } from "react-icons/fa";
 import "../styles/CreateComment.css";
 
-const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
+const CreateComment = ({ isCreateComment, setIsCreateComment, article_id, setComments }) => {
   const [body, setBody] = useState("");
   const [message, setMessage] = useState("");
   const { loggedInUser } = useContext(UserContext);
@@ -14,6 +14,9 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
     if (body) {
       postComment(article_id, loggedInUser.username, body).then(res => {
         if (res.status === 201) {
+          getCommentsByArticleId(article_id).then(res => {
+            setComments(() => res.comments);
+          });
           setBody("");
           setMessage("");
           setIsCreateComment(false);
@@ -23,7 +26,7 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
       setMessage("Please enter your comment text");
     }
   };
-  const handleDelete = () => {
+  const handleClose = () => {
     setIsCreateComment(false);
     setBody("");
     setMessage("");
@@ -45,7 +48,7 @@ const CreateComment = ({ isCreateComment, setIsCreateComment, article_id }) => {
           />
           <div className="create-comment__btn-container">
             <button className="btn btn__comment btn__submit">Submit Your Comment</button>
-            <button onClick={handleDelete} className="btn btn__close">
+            <button onClick={handleClose} className="btn btn__close">
               <FaWindowClose />
             </button>
           </div>

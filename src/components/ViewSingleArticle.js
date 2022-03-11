@@ -70,7 +70,7 @@ const ViewSingleArticle = () => {
             </button>
             <Vote votes={article.votes} setUpdateVotes={setUpdateVotes} />
           </div>
-          <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} />
+          <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} setComments={setComments} />
           <Comments comments={comments} setComments={setComments} />
         </div>
       </Page>
