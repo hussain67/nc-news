@@ -10,6 +10,7 @@ import NotFound from "./NotFound";
 import Page from "./Page";
 import "../styles/ViewSingleArticle.css";
 import HeaderArticle from "./HeaderArticle";
+import ArticleAuthor from "./ArticleAuthor";
 
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
@@ -18,6 +19,7 @@ const ViewSingleArticle = () => {
   const [comments, setComments] = useState([]);
   const [isCreateComment, setIsCreateComment] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const { author, created_at, title, votes } = article;
 
   const handleClick = () => {
     setIsCreateComment(true);
@@ -52,13 +54,15 @@ const ViewSingleArticle = () => {
 
       <Page title="Article & Comments">
         <div className="article">
-          <h3 className="articles__title">{article.title}</h3>
+          <h3 className="articles__title">{title}</h3>
+          <ArticleAuthor author={author} created_at={created_at} />
+
           <p>{article.body}</p>
           <div className="article__comment-vote">
             <button className="btn btn__comment" onClick={() => handleClick()}>
               Write a comment
             </button>
-            <Vote votes={article.votes} id={article_id} element="article" />
+            <Vote votes={votes} id={article_id} element="article" />
           </div>
           <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} setComments={setComments} />
           <Comments comments={comments} setComments={setComments} />

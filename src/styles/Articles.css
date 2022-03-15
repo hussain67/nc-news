@@ -1,4 +1,4 @@
-.articles__ul {
+.articles__li {
   margin-bottom: 25px;
 }
 
@@ -6,15 +6,6 @@
   font-size: 1.3rem;
   font-weight: 500;
   color: black;
-}
-.articles__author {
-  text-transform: capitalize;
-  color: black;
-  font-style: italic;
-}
-
-.articles__date {
-  color: red;
 }
 
 .articles__votes,
@@ -24,7 +15,7 @@
   font-size: 0.9rem;
   background-color: var(--btn-bg-color);
   cursor: pointer;
-  transition: all 0.7s;
+  transition: all 0.5s;
 }
 .articles__votes:hover,
 .articles__comments:hover {

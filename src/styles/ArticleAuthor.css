@@ -1,0 +1,9 @@
+.article__author {
+  text-transform: capitalize;
+  color: black;
+  font-style: italic;
+}
+
+.article__date {
+  color: red;
+}

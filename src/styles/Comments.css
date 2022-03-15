@@ -1,4 +1,8 @@
+.comment {
+  margin-bottom: 15px;
+}
 .comment__author {
   text-transform: capitalize;
   font-weight: 400;
+  font-style: italic;
 }

@@ -3,17 +3,16 @@ import { Link } from "react-router-dom";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import "../styles/Articles.css";
+import ArticleAuthor from "./ArticleAuthor";
 
 const Articles = ({ articles }) => {
   return (
     <div className="articles">
       {articles.map(article => {
         const { author, article_id, title, body, created_at, votes, comment_count } = article;
-        const date = new Date(created_at);
-        const dateFormatted = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 
         return (
-          <li key={article_id} className="articles__ul">
+          <li key={article_id} className="articles__li">
             <h3 key={title} className="articles__title">
               {title}
             </h3>
@@ -23,11 +22,9 @@ const Articles = ({ articles }) => {
                 <button className="btn btn--read">... Read more</button>{" "}
               </Link>
             </p>
-            <p className="articles__author">
-              By {author} <span className="articles__date">{dateFormatted}</span>
-            </p>
+            <ArticleAuthor author={author} created_at={created_at} />
 
-            <p>
+            <Link to={`/articles/${article_id}`}>
               <span className="articles__votes">
                 <BiUpvote /> {votes} <BiDownvote />
               </span>
@@ -35,7 +32,7 @@ const Articles = ({ articles }) => {
                 {" "}
                 <FaRegCommentAlt /> {comment_count} Comments{" "}
               </span>
-            </p>
+            </Link>
           </li>
         );
       })}

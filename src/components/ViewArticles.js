@@ -12,7 +12,7 @@ const ViewArticles = () => {
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(articles);
   useEffect(() => {
     getArticles()
       .then(res => {
