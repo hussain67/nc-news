@@ -12,14 +12,18 @@ code {
 
 :root {
   --main-color: #405c71;
+  --btn-bg-color: #e2e8ed;
+  --btn-bg-color-darker: #d1dde8;
 }
 
-h3 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
-  font-weight: 300;
-  font-size: 22px;
 }
+
 @media screen and (min-width: 768px) {
   h3 {
     font-weight: 400;

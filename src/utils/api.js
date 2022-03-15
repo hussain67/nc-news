@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const newsApi = axios.create({
-  baseURL: "https://be-nc-news-shahid.herokuapp.com/api"
+  //baseURL: "https://be-nc-news-shahid.herokuapp.com/api"
+  baseURL: "http://localhost:9090/api"
 });
 
 export const getArticles = () => {
@@ -61,8 +62,14 @@ export const deleteComment = comment_id => {
     return res;
   });
 };
-export const countVote = (article_id, count) => {
-  return newsApi.patch(`/articles/${article_id}`, { inc_votes: count }).then(res => {
-    return res;
-  });
+export const countVote = (id, count, element) => {
+  if (element === "article") {
+    return newsApi.patch(`/articles/${id}`, { inc_votes: count }).then(res => {
+      return res;
+    });
+  } else if (element === "comment") {
+    return newsApi.patch(`/comments/${id}`, { inc_votes: count }).then(res => {
+      return res;
+    });
+  }
 };

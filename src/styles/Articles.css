@@ -3,23 +3,35 @@
 }
 
 .articles__title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 500;
   color: black;
 }
 .articles__author {
   text-transform: capitalize;
   color: black;
   font-style: italic;
-  padding-bottom: 10px;
 }
 
-.articles__body {
-  padding-bottom: 10px;
-}
 .articles__date {
   color: red;
+}
+
+.articles__votes,
+.articles__comments {
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  background-color: var(--btn-bg-color);
+  cursor: pointer;
+  transition: all 0.7s;
+}
+.articles__votes:hover,
+.articles__comments:hover {
+  background-color: var(--btn-bg-color-darker);
+}
+.articles__votes {
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 768px) {

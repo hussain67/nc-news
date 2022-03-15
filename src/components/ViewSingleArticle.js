@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticlesById, countVote, getCommentsByArticleId } from "../utils/api";
+import { getArticlesById, getCommentsByArticleId } from "../utils/api";
 
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
@@ -14,8 +14,7 @@ import HeaderArticle from "./HeaderArticle";
 const ViewSingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
-  const [voteCount, setVoteCount] = useState(0);
-  const [updateVotes, setUpdateVotes] = useState(0);
+
   const [comments, setComments] = useState([]);
   const [isCreateComment, setIsCreateComment] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,14 +22,12 @@ const ViewSingleArticle = () => {
   const handleClick = () => {
     setIsCreateComment(true);
   };
-  console.log(voteCount);
+
   useEffect(() => {
     getArticlesById(article_id)
       .then(res => {
         setArticle(() => res.article);
-        setVoteCount(() => {
-          return res.article.votes;
-        });
+
         if (res.article) {
           getCommentsByArticleId(article_id).then(res => {
             setComments(() => res.comments);
@@ -42,13 +39,6 @@ const ViewSingleArticle = () => {
         console.log(err.message);
       });
   }, [article_id]);
-
-  useEffect(() => {
-    countVote(article_id, updateVotes).then(res => {
-      if (res) {
-      }
-    });
-  }, [article_id, updateVotes]);
 
   if (isLoading) {
     return <Loading />;
@@ -62,13 +52,13 @@ const ViewSingleArticle = () => {
 
       <Page title="Article & Comments">
         <div className="article">
-          <h3>{article.title}</h3>
+          <h3 className="articles__title">{article.title}</h3>
           <p>{article.body}</p>
           <div className="article__comment-vote">
             <button className="btn btn__comment" onClick={() => handleClick()}>
               Write a comment
             </button>
-            <Vote votes={article.votes} setUpdateVotes={setUpdateVotes} />
+            <Vote votes={article.votes} id={article_id} element="article" />
           </div>
           <CreateComment isCreateComment={isCreateComment} setIsCreateComment={setIsCreateComment} article_id={article_id} setComments={setComments} />
           <Comments comments={comments} setComments={setComments} />

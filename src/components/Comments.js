@@ -3,6 +3,7 @@ import { deleteComment, getCommentsByArticleId } from "../utils/api";
 import "../styles/Comment.css";
 import { UserContext } from "../contexts/User";
 import { FaTrash } from "react-icons/fa";
+import Vote from "./Vote";
 const Comments = ({ comments, setComments }) => {
   const { loggedInUser } = useContext(UserContext);
   const handleDelete = (comment_id, article_id) => {
@@ -14,18 +15,20 @@ const Comments = ({ comments, setComments }) => {
       }
     });
   };
+
   return (
     <div>
       {comments.map(comment => {
+        const { comment_id, author, article_id, votes } = comment;
         return (
-          <li key={comment.comment_id}>
-            <h3>
-              Comment by: {comment.author}
-              {loggedInUser.username === comment.author ? (
+          <li key={comment_id}>
+            <h4 className="comment__author">
+              Comment By: {author}
+              {loggedInUser.username === author ? (
                 <button
                   className="btn btn--delete"
                   onClick={() => {
-                    handleDelete(comment.comment_id, comment.article_id);
+                    handleDelete(comment_id, article_id);
                   }}
                 >
                   <FaTrash />
@@ -33,8 +36,9 @@ const Comments = ({ comments, setComments }) => {
               ) : (
                 ""
               )}
-            </h3>
+            </h4>
             <p>{comment.body}</p>
+            <Vote id={comment_id} votes={votes} element="comment" />
           </li>
         );
       })}

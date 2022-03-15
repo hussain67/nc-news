@@ -1,3 +1,4 @@
-.btn--comment {
-  margin-left: 10px;
+.comment__author {
+  text-transform: capitalize;
+  font-weight: 400;
 }
